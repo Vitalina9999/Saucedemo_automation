@@ -1,5 +1,7 @@
 const LoginPage = require('../pageobjects/login.page');
 const ProductsPage = require('../pageobjects/products.page');
+const CartPage = require('../pageobjects/cart.page');
+const CheckoutStepOnePage = require('../pageobjects/checkout-step-one.page');
 
 describe('E2E goods order', () => {
 
@@ -8,11 +10,13 @@ describe('E2E goods order', () => {
         LoginPage.open();
         await LoginPage.login('standard_user', 'secret_sauce');
 
-       // await ProductsPage.AddToCartFirstItem();
-        
-       await ProductsPage.FetchAllProductsInList();
-       // await ProductsPage.GoToCart();
+        await ProductsPage.ClickFirstProduct();
+        await ProductsPage.ClickShoppingCart();
+        await CartPage.ClickCheckoutBtn();
+        await CheckoutStepOnePage.FillCheckoutForm();
+        await CheckoutStepOnePage.ClickContinueBtn();
 
+        
     });
 
 });

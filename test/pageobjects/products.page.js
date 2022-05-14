@@ -1,24 +1,19 @@
-const  Page = require('.//inventory');
-
-class ProductsPage extends Page{
-
-    // get productsCount() {
-    //     return 5;
-    // }
-
-    // async AddToCartFirstItem() {
-    //     const inventoryList = await $('.inventory_list');
-    //     await inventoryList.$$('button')[0].click();
-    // }
+class ProductsPage {
 
     async FetchAllProductsInList() {
-        const addToCartProducts = await $$('.btn_inventory')
-        await addToCartProducts.forEach(async (addToCartProduct) => {
-            await addToCartProduct.click()
-        })
+        const addToCartProducts = await $$('.btn_inventory');
+        for (const addToCartProduct of addToCartProducts) {
+            await addToCartProduct.click();
+        }
     }
 
+    async ClickFirstProduct() {
+        const inventoryList = await $('.inventory_list');
+        await inventoryList.$$('button')[0].click();
+    }
 
+    async ClickShoppingCart() {
+        const shoppingCartLink = await $('.shopping_cart_link').click();
+    };
 }
-
 module.exports = new ProductsPage();

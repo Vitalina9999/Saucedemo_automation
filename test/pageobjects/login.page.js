@@ -1,10 +1,3 @@
-//const Page = require('./page');
-
-// class LoginPage extends Page { 
-//     get inputUsername() {
-//         return $('#user-name');
-//     }
-
 class LoginPage {
     get inputUsername() {
         return $('#user-name');
@@ -28,5 +21,4 @@ class LoginPage {
         return browser.url(`https://www.saucedemo.com`)
     }
 }
-
 module.exports = new LoginPage();
