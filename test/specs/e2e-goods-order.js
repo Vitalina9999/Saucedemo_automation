@@ -2,6 +2,8 @@ const LoginPage = require('../pageobjects/login.page');
 const ProductsPage = require('../pageobjects/products.page');
 const CartPage = require('../pageobjects/cart.page');
 const CheckoutStepOnePage = require('../pageobjects/checkout-step-one.page');
+const CheckoutStepTwoPage = require('../pageobjects/checkout-step-two.page');
+const CheckoutComplete = require('../pageobjects/checkout.complete');
 
 describe('E2E goods order', () => {
 
@@ -15,6 +17,8 @@ describe('E2E goods order', () => {
         await CartPage.ClickCheckoutBtn();
         await CheckoutStepOnePage.FillCheckoutForm();
         await CheckoutStepOnePage.ClickContinueBtn();
+        await CheckoutStepTwoPage.ClickFinishBtn();
+        await CheckoutComplete.CheckoutText();
 
         
     });
