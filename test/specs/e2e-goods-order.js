@@ -1,13 +1,14 @@
 const LoginPage = require('../pageobjects/login.page');
 const ProductsPage = require('../pageobjects/products.page');
 const CartPage = require('../pageobjects/cart.page');
-const CheckoutStepOnePage = require('../pageobjects/checkout-step-one.page');
-const CheckoutStepTwoPage = require('../pageobjects/checkout-step-two.page');
+const CheckoutStepOnePage = require('../pageobjects/checkout.step.one');
+const CheckoutStepTwoPage = require('../pageobjects/checkout.step.two');
 const CheckoutComplete = require('../pageobjects/checkout.complete');
+
 
 describe('E2E goods order', () => {
 
-    it('order succesfull', async () => {
+    it('order succesfull', async () => {     
 
         LoginPage.open();
         await LoginPage.login('standard_user', 'secret_sauce');
@@ -20,7 +21,7 @@ describe('E2E goods order', () => {
         await CheckoutStepTwoPage.ClickFinishBtn();
         await CheckoutComplete.CheckoutText();
 
-        
+
     });
 
 });
