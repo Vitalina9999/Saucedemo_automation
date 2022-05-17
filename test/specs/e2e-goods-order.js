@@ -5,10 +5,9 @@ const CheckoutStepOnePage = require('../pageobjects/checkout.step.one');
 const CheckoutStepTwoPage = require('../pageobjects/checkout.step.two');
 const CheckoutComplete = require('../pageobjects/checkout.complete');
 
-
 describe('E2E goods order', () => {
 
-    it('order succesfull', async () => {     
+    it('order succesfull', async () => {
 
         LoginPage.open();
         await LoginPage.login('standard_user', 'secret_sauce');
@@ -20,8 +19,5 @@ describe('E2E goods order', () => {
         await CheckoutStepOnePage.ClickContinueBtn();
         await CheckoutStepTwoPage.ClickFinishBtn();
         await CheckoutComplete.CheckoutText();
-
-
     });
-
 });

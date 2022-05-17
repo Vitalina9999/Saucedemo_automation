@@ -16,7 +16,16 @@ describe('My Login application', () => {
 
         await LoginPage.login('fake', 'fake');
         await expect(SecurePage.errorMessage).toBeExisting();
-        await expect(SecurePage.errorMessage).toHaveTextContaining('Epic sadface: Username and password do not match any user in this service')
+        await expect(SecurePage.errorMessage).toHaveTextContaining('Epic sadface: Username and password do not match any user in this service');
     });
+
+    it('should show error message with lockedout user', async () => {
+        await LoginPage.open();
+
+        await LoginPage.login('locked_out_user', 'secret_sauce');
+        await expect(SecurePage.errorMessage).toBeExisting();
+        await expect(SecurePage.errorMessage).toHaveTextContaining('Epic sadface: Sorry, this user has been locked out.');
+              
+    });  
     
 });
