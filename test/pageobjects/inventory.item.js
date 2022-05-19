@@ -9,9 +9,7 @@ class InventoryItemPage {
           expect(detailsDescriptionText).not.be.empty;
 
           const detailsPriceText = await $('.inventory_details_price').getText();
-          expect(detailsPriceText).not.be.empty;
-          
+          expect(detailsPriceText).not.be.empty;          
      }
-
 }
 module.exports = new InventoryItemPage();
