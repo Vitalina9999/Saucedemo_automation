@@ -15,5 +15,10 @@ class ProductsPage {
     async ClickShoppingCart() {
         const shoppingCartLink = await $('.shopping_cart_link').click();
     };
+
+    async OpenFirstProduct() {
+        const inventoryList = await $('.inventory_list');
+        await inventoryList.$$('.inventory_item_name')[0].click();
+    }
 }
 module.exports = new ProductsPage();
